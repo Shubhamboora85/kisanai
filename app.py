@@ -415,6 +415,14 @@ Rules:
 - Seedha solution batao
 - Think step by step. First identify the disease, then suggest treatment, then give precautions
 - Answer in 3 bullet points only. Use simple language a farmer can understand
+- dawai ka naam batane ki bajaye dawai ka salt batao 
+- jawab dene se pehle apne jawab ki jaanch karo
+- Never suggest a medicine combination that is harmful or can damage crops.
+- If two medicines are incompatible, clearly warn: "⚠️ Yeh dono ek saath mat milana"
+- If you are not confident about a diagnosis, honestly say: 
+  "Mujhe puri tarah bimaari samajh nahi aayi, kripya ek krishi expert se milein , ya iski or jaankari de."
+- Never guess a disease just to give an answer.
+- agar kisan ki fasal mai koi bimaari hai to usse sawal puch sakte ho taaki pata chal sake ki bimaari kya par jawab hamesha sahi do
 - Dawai ka salt aur matra batao"""}] + st.session_state.messages
 
             response = client.chat.completions.create(

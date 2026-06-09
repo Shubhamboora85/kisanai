@@ -167,6 +167,12 @@ def get_fasal_visual(fasal, din):
         elif din <= 45: return "🌿", "Growth"
         elif din <= 75: return "🌸", "Phool"
         else: return "✂️", "Harvesting"
+    elif fasal == "🍬 Ganna (Sugarcane)":
+        if din <= 30: return "🌱", "Jamav"
+        elif din <= 90: return "🌿", "Growth"
+        elif din <= 180: return "🎋", "Bhadai"
+        elif din <= 270: return "🍬", "Ripening"
+        else: return "✂️", "Harvesting"
     return "🌱", "Unknown"
 
 def get_weather(shehar):
@@ -196,6 +202,7 @@ def fasal_season_check(fasal, beej_date):
         "🌾 Chawal (Rice)": {"sahi_mahine": [5,6,7], "message": "⚠️ Chawal ka sahi samay June-July hai! Abhi risk hai."},
         "🌿 Gehun (Wheat)": {"sahi_mahine": [10,11,12], "message": "⚠️ Gehun ka sahi samay October-December hai!"},
         "🟡 Sarso (Mustard)": {"sahi_mahine": [9,10,11], "message": "⚠️ Sarso ka sahi samay September-November hai!"}
+        "🍬 Ganna (Sugarcane)": {"sahi_mahine": [2, 3, 4, 10, 11],"message": "⚠️ Ganne ki fasal ka sahi samay February-April ya October-November hai!"},
     }
     if fasal in warnings:
         if month not in warnings[fasal]["sahi_mahine"]:
@@ -221,6 +228,17 @@ def fasal_stage(fasal, beej_date):
         elif din <= 45: return f"🌿 Growth Stage (Din {din}/45)", "Urea aur keeton ki dawai spray karo"
         elif din <= 75: return f"🌸 Phool Stage (Din {din}/75)", "Koi spray mat karo"
         else: return f"✂️ Harvesting Stage (Din {din})", "Sarso katne ka samay!"
+    elif fasal == "🍬 Ganna (Sugarcane)":
+        if din <= 30:
+        return f"🌱 Jamav Stage (Din {din}/30)", "Halka paani do — roz check karo"
+        elif din <= 90:
+        return f"🌿 Growth Stage (Din {din}/90)", "Urea daalo — 50kg per acre — paani regular rakho"
+        elif din <= 180:
+        return f"🎋 Bhadai Stage (Din {din}/180)", "Potash daalo — 25kg per acre — tying karo"
+        elif din <= 270:
+        return f"🍬 Ripening Stage (Din {din}/270)", "Paani kam karo — koi khad mat daalo"
+        else:
+        return f"✂️ Harvesting Stage (Din {din})", "Ganna katne ka samay — mill se contact karo"
     return "Stage pata nahi", "Sahi fasal chunein"
 
 def analyze_image(image_bytes, fasal):
@@ -291,7 +309,7 @@ elif st.session_state.fasal == "":
     """, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     fasal = st.selectbox("🌱 Fasal chunein:", [
-        "🌾 Chawal (Rice)", "🌿 Gehun (Wheat)", "🟡 Sarso (Mustard)"])
+        "🌾 Chawal (Rice)", "🌿 Gehun (Wheat)", "🟡 Sarso (Mustard)", "🍬 Ganna (Sugarcane)"])
     beej_date = st.date_input("📅 Beej kab boya tha?", max_value=date.today())
     if st.button("🚀 Tracking Shuru Karein"):
         warning = fasal_season_check(fasal, beej_date)

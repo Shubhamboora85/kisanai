@@ -410,10 +410,12 @@ Stage: {stage}
 Mausam: {weather_info}
 Rules:
 - Hamesha Hindi mein jawab de
-- Sirf 2-3 lines mein jawab do
+- Sirf 2-3 lines mein jawab do agar possible hai to
 - Aasan bhasha
 - Seedha solution batao
-- Dawai ka naam aur matra batao"""}] + st.session_state.messages
+- Think step by step. First identify the disease, then suggest treatment, then give precautions
+- Answer in 3 bullet points only. Use simple language a farmer can understand
+- Dawai ka salt aur matra batao"""}] + st.session_state.messages
 
             response = client.chat.completions.create(
                 model="llama-3.3-70b-versatile",

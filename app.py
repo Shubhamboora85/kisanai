@@ -342,6 +342,7 @@ else:
             <h2 style='color:#8B6914 !important'>{weather['temp']}°C</h2>
             <p>{weather['description']}</p>
             <p>💧 Naami: {weather['humidity']}% | 💨 Hawa: {weather['wind']} m/s</p>
+            <p style='color:#8B6914 !important; font-size:11px'>⚠️ Mausam approximate hai — 3-5 degree ka fark normal hai</p>
         </div>
         """, unsafe_allow_html=True)
 

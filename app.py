@@ -201,7 +201,7 @@ def fasal_season_check(fasal, beej_date):
     warnings = {
         "🌾 Chawal (Rice)": {"sahi_mahine": [5,6,7], "message": "⚠️ Chawal ka sahi samay June-July hai! Abhi risk hai."},
         "🌿 Gehun (Wheat)": {"sahi_mahine": [10,11,12], "message": "⚠️ Gehun ka sahi samay October-December hai!"},
-        "🟡 Sarso (Mustard)": {"sahi_mahine": [9,10,11], "message": "⚠️ Sarso ka sahi samay September-November hai!"}
+        "🟡 Sarso (Mustard)": {"sahi_mahine": [9,10,11], "message": "⚠️ Sarso ka sahi samay September-November hai!"},
         "🍬 Ganna (Sugarcane)": {"sahi_mahine": [2, 3, 4, 10, 11],"message": "⚠️ Ganne ki fasal ka sahi samay February-April ya October-November hai!"},
     }
     if fasal in warnings:
